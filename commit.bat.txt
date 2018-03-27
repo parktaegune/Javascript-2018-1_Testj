@@ -1,0 +1,24 @@
+git init
+git remote rm origin
+git remote add origin https://github.com/parktaegune/Javascript-2018-1_Testj.git
+git add -all
+git commit -m "("2018-01-17") init testjs"
+git push -u origin master
+
+https://github.com/parktaegune/Javascript-2018-1_Testj.git
+
+function getIdPw(){
+    var id = prompt('ID 입력', '');
+    var password = prompt(id + '가 사용할 초기 비번입력','');
+    localStorage.setItem('id', id);
+    localStorage.setItem('password', password);
+}
+var password = localStorage.getItem('password');
+if(!password){
+    getIdPw();
+}
+//Password?
+
+var id = localStorage.getItem('id');
+var heading = document.querySelector('h1');
+heading.innerHTML = id + 'Homepage';

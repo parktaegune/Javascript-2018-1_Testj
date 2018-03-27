@@ -1,32 +1,17 @@
 var myHeading = document.querySelector('h1'); 
-var id = localStorage.getItem('id');
- myHeading.innerHTML = id+'Homepage'; 
- function getIdPw() { 
-     var id = prompt('ID 입력', ''); 
-     alert(id + '가 로그인함.'); 
-     localStorage.setItem('id', id);
-     var passwordSystem = '12345'; 
-     var password = prompt('PW 입력', ''); 
-     if (password === passwordSystem) alert('정상 로그인!'); 
-    else alert('비밀번호 오류'); 
- } 
- 
- 
- document.querySelector('h1').onclick = function () { 
-     getIdPw(); 
- } 
- 
- 
- var myImg = document.querySelector('img'); 
- myImg.onclick = function () { 
-     var src = myImg.getAttribute('src'); 
-     if (src === 'images/firefox-icon.png') 
-         myImg.setAttribute('src', 'images/mokwon.png'); 
-    else 
-         myImg.setAttribute('src', 'images/firefox-icon.png'); 
- } 
-
- var myButton = document.querySelector('button');
- myButton.onclick = function(){
-    getIdPw(); 
- }
+ myHeading.innerHTML = 'Cloud Service'; 
+ function getIdPw(){
+    if(!document.userInfo.id.value){
+        alert("아이디를 입력하세요.");
+        return false;
+    }
+    if(!document.userInfo.password.value){
+        alert("비밀번호를 입력하세요.");
+        return false;
+    }
+    // 비밀번호와 비밀번호 확인에 입력된 값이 동일한지 확인
+    if(document.userInfo.password.value != document.userInfo.passwordcheck.value ){
+        alert("비밀번호를 동일하게 입력하세요.");
+        return false;
+    }
+}
