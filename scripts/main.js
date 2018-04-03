@@ -1,34 +1,30 @@
-// Image switcher code
+var id;
+var password;
 
-var myImage = document.querySelector('img');
-
-myImage.onclick = function() {
-	var mySrc = myImage.getAttribute('src');
-	if(mySrc === 'images/firefox-icon.png') {
-      myImage.setAttribute ('src','images/firefox2.png');
-	} else {
-	  myImage.setAttribute ('src','images/firefox-icon.png');
-	}
+function getIdPw(){
+   id = prompt('사용자의 ID 입력', '');
+   password = prompt(id+'사용자가 사용할 초기 비번 입력', '');
 }
 
-// Personalized welcome message code
-
-var myButton = document.querySelector('button');
-var myHeading = document.querySelector('h1');
-
-function setUserName() {
-  var myName = prompt('Please enter your name.');
-  localStorage.setItem('name', myName);
-  myHeading.innerHTML = 'Mozilla is cool, ' + myName;
+function SetNull(){
+  localStorage.setItem('id',null);
+  localStorage.setItem('password',null);
 }
 
-if(!localStorage.getItem('name')) {
-  setUserName();
-} else {
-  var storedName = localStorage.getItem('name');
-  myHeading.innerHTML = 'Mozilla is cool, ' + storedName;
-}
+SetNull();
 
-myButton.onclick = function() {
-  setUserName();
+document.querySelector('html').onclick = function() {
+  getIdPw();
+
+
+  if(password === '1234'){
+    localStorage.setItem('id',id);
+    alert('로그인 되었습니다.');
+    var myHeading = document.querySelector('h1');
+    myHeading.innerHTML = id + '<br>Homepage';
+  
+  }else{
+    alert('패스워드가 틀렸습니다.');
+    getIdPw();
+  }
 }
