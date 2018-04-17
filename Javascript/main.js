@@ -1,7 +1,5 @@
 var id;
 var password;
-var myHeading = document.querySelector('h1');
-myHeading.innerHTML = 'Hello world!';
 
 function getIdPw(){
    id = prompt('ID 입력', '');

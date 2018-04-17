@@ -1,30 +1,4 @@
-var id;
-var password;
-
-function getIdPw(){
-   id = prompt('사용자의 ID 입력', '');
-   password = prompt(id+'사용자가 사용할 초기 비번 입력', '');
-}
-
-function SetNull(){
-  localStorage.setItem('id',null);
-  localStorage.setItem('password',null);
-}
-
-SetNull();
-
-document.querySelector('html').onclick = function() {
-  getIdPw();
-
-
-  if(password === '1234'){
-    localStorage.setItem('id',id);
-    alert('로그인 되었습니다.');
-    var myHeading = document.querySelector('h1');
-    myHeading.innerHTML = id + '<br>Homepage';
-  
-  }else{
-    alert('패스워드가 틀렸습니다.');
-    getIdPw();
-  }
-}
+console.log('Hello, world!');
+console.log('Node.js version:' + process.version);
+console.log(process.memoryUsage());
+console.log(process.env);
